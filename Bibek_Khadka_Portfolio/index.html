@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bibek Khadka | Cybersecurity & Full-Stack Developer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="images.png">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; font-family:'Poppins',sans-serif;}
+body { background:#0f172a; color:#fff; line-height:1.6; }
+
+/* ===== HEADER ===== */
+header { background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); padding:1rem 2rem; position:sticky; top:0; z-index:1000; }
+.navbar { display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:auto; }
+.navbar h1 { color:#0ea5e9; font-size:1.8rem; }
+.nav-links { list-style:none; display:flex; gap:1.5rem; }
+.nav-links a { font-weight:500; transition:0.3s; color:#fff; }
+.nav-links a:hover { color:#3b82f6; }
+.menu-toggle { display:none; font-size:2rem; cursor:pointer; }
+
+/* ===== HERO ===== */
+.hero { position:relative; overflow:hidden; text-align:center; padding:6rem 2rem; background: linear-gradient(135deg,#0f172a,#1e293b); color:#fff; }
+.hero-bg { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden; }
+.hero-bg span { position:absolute; display:block; width:10px; height:10px; background:#0ea5e9; border-radius:50%; opacity:0.4; animation:move 15s linear infinite; }
+.hero-bg span:nth-child(1){left:10%; animation-duration:12s;}
+.hero-bg span:nth-child(2){left:20%; animation-duration:18s;}
+.hero-bg span:nth-child(3){left:30%; animation-duration:14s;}
+.hero-bg span:nth-child(4){left:40%; animation-duration:20s;}
+.hero-bg span:nth-child(5){left:50%; animation-duration:16s;}
+.hero-bg span:nth-child(6){left:60%; animation-duration:19s;}
+.hero-bg span:nth-child(7){left:70%; animation-duration:15s;}
+.hero-bg span:nth-child(8){left:80%; animation-duration:13s;}
+.hero-bg span:nth-child(9){left:90%; animation-duration:17s;}
+.hero-bg span:nth-child(10){left:100%; animation-duration:21s;}
+@keyframes move {0%{top:100%;transform:translateX(0) scale(0.5);}50%{top:50%;transform:translateX(50px) scale(1);}100%{top:-10%;transform:translateX(-50px) scale(0.5);} }
+
+.hero h2 { font-size:2.8rem; position:relative; z-index:1; }
+.hero span { color:#0ea5e9; font-weight:700; }
+.hero p { margin-top:1rem; font-size:1.1rem; color:#f3f4f6; position:relative; z-index:1; }
+.cursor { display:inline-block; background:#0ea5e9; width:3px; animation:blink 0.7s infinite; }
+@keyframes blink {0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
+
+.hero .btn { display:inline-block; margin-top:1.5rem; padding:0.8rem 2rem; background:#0f172a; color:#0ea5e9; border-radius:30px; font-weight:600; transition:0.3s; margin-right:10px; position:relative; z-index:1;}
+.hero .btn:hover { background:#1e293b; color:#3b82f6; }
+
+/* ===== SECTIONS ===== */
+.section { padding:4rem 2rem; max-width:1200px; margin:2rem auto; background:#1e293b; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.3); }
+.section h2 { font-size:2rem; color:#0ea5e9; margin-bottom:2rem; text-align:center; text-transform:uppercase; }
+.section p { margin-bottom:1rem; color:#f1f5f9; }
+
+/* ===== PROJECTS ===== */
+.project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; }
+.project-card { background:#0f172a; padding:1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition:0.3s; }
+.project-card:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 10px 20px rgba(0,0,0,0.5); }
+.project-card h3 { color:#0ea5e9; margin-bottom:0.5rem; }
+.project-card .tech { font-size:0.9rem; color:#3b82f6; margin-top:5px; }
+
+/* ===== SKILLS ===== */
+.skills-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-bottom:2rem; }
+.skill { background:#0f172a; padding:1rem; border-radius:12px; text-align:center; }
+.skill h3 { margin-bottom:10px; color:#3b82f6; }
+.skill-circle { width:120px; height:120px; border-radius:50%; border:8px solid #334155; display:flex; align-items:center; justify-content:center; margin:auto; position:relative; }
+.skill-circle span { position:absolute; font-weight:600; color:#0ea5e9; }
+.skill p { margin-top:10px; }
+
+/* ===== EXPERIENCE TIMELINE ===== */
+.timeline { position:relative; margin:2rem 0; padding-left:40px; }
+.timeline::before { content:''; position:absolute; left:20px; top:0; width:4px; height:100%; background:#0ea5e9; }
+.timeline-item { position:relative; margin-bottom:2rem; }
+.timeline-item::before { content:''; position:absolute; left:-10px; top:5px; width:20px; height:20px; border-radius:50%; background:#3b82f6; border:4px solid #0f172a; }
+.timeline-item h4 { color:#0ea5e9; margin-bottom:0.3rem; }
+.timeline-item p { margin-left:0; }
+
+/* ===== CONTACT ===== */
+.contact-form { display:flex; flex-direction:column; gap:1rem; max-width:600px; margin:auto; }
+.contact-form input, .contact-form textarea { padding:0.8rem; border:none; border-radius:8px; outline:none; font-size:1rem; resize:none; }
+.contact-form button { padding:0.8rem; border:none; background:#0ea5e9; border-radius:8px; font-weight:600; cursor:pointer; transition:0.3s; }
+.contact-form button:hover { background:#3b82f6; }
+
+/* ===== FOOTER ===== */
+footer { text-align:center; padding:2rem; background:#020617; color:#94a3b8; margin-top:3rem; }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+.nav-links { position:absolute; top:70px; right:0; background:#1e293b; width:100%; flex-direction:column; align-items:center; padding:2rem 0; display:none; }
+.nav-links.active { display:flex; }
+.menu-toggle { display:block; }
+.skills-container { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+.project-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<h1>Bibek Khadka</h1>
+<div class="menu-toggle" id="menu-toggle">☰</div>
+<ul class="nav-links" id="nav-links">
+<li><a href="#Home">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-bg">
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+<h2>Hello, I'm <span>Bibek Khadka</span></h2>
+<p>I am a <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+<a href="#contact" class="btn">Work With Me</a>
+<a href="C:\Users\khadk\Desktop\Bibek_Khadka_Portfolio\Bibek_Khadka_IT-Resume.docx" class="btn" download>Download CV</a>
+</section>
+
+<!-- ABOUT -->
+<section id="Home" class="section">
+<h2>About Me</h2>
+<p>Hi, I'm <strong>Bibek Khadka</strong>, a motivated and detail-oriented IT student and developer based in Sydney, Australia.
+Currently completing my Bachelor's in Information Technology at Kings Own Institute and Master of IT with a focus on Cybersecurity. I am passionate about system administration, networking, ethical hacking, and developing real-world digital solutions.</p>
+<p>I have hands-on experience with Windows Server, Active Directory, Azure, Microsoft 365, and practical networking troubleshooting. I’ve completed projects like Shade Machine website, VibeVision Production, E-Commerce Android app, Home Lab IT infrastructure simulation, and more. I’m proactive, skilled at problem-solving, and dedicated to continuous learning in IT and Cybersecurity.</p>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+<h2>Education & Certifications</h2>
+<ul>
+<li><strong>Bachelor of IT</strong> – Kings Own Institute</li>
+<li><strong>Master of IT (MIT)</strong> – Ongoing, focus on Cybersecurity</li>
+<li><strong>Foundation of Cybersecurity</strong> – Google</li>
+<li><strong>Job-Ready Program & Internship</strong> – Extra Tech Pty.Ltd</li>
+<li><strong>Python Basic</strong> – IBM</li>
+<li><strong>Front-End Developer</strong> – Sololearn</li>
+<li><strong>CCST (Cisco Certified Support Technician)</strong> – Ongoing</li>
+<li><strong>Azure Fundamentals (AZ-900)</strong> – Ongoing</li>
+<li><strong>Microsoft 365 Fundamentals (MS-900)</strong> – Ongoing</li>
+<li><strong>ITIL Foundation Certificate</strong> – Ongoing</li>
+<li><strong>Cert IV in Networking</strong> – Planned</li>
+<li><strong>Ethical Hacking Course</strong> – Beginner to Advanced (Planned)</li>
+</ul>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+<h2>Technical Skills</h2>
+<div class="skills-container">
+<div class="skill">
+<h3>Operating Systems</h3>
+<div class="skill-circle" data-skill="95"><span>0%</span></div>
+<p>Windows 10/11, Linux (basic)</p>
+</div>
+<div class="skill">
+<h3>Networking</h3>
+<div class="skill-circle" data-skill="85"><span>0%</span></div>
+<p>TCP/IP, DNS, DHCP, VLAN, Router/Switch setup</p>
+</div>
+<div class="skill">
+<h3>Cloud Platforms</h3>
+<div class="skill-circle" data-skill="80"><span>0%</span></div>
+<p>Azure, Microsoft 365</p>
+</div>
+<div class="skill">
+<h3>Programming</h3>
+<div class="skill-circle" data-skill="75"><span>0%</span></div>
+<p>Python, Java, C++, HTML, CSS, JavaScript</p>
+</div>
+<div class="skill">
+<h3>Database & Tools</h3>
+<div class="skill-circle" data-skill="70"><span>0%</span></div>
+<p>MySQL, Firebase, XAMPP, Github, Figma, Wix, Wordpress</p>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+<h2>Projects</h2>
+<div class="project-grid">
+<div class="project-card">
+<h3>Shade Machine Website</h3>
+<p>High-fidelity prototype in Figma and live site in Wix. Focused on branding, UX, and visual appeal.</p>
+<p class="tech">Technologies: Figma, Wix, HTML, CSS</p>
+</div>
+<div class="project-card">
+<h3>VibeVision Production Website</h3>
+<p>Static website with Firebase backend for contact form. Responsive and performance-optimized.</p>
+<p class="tech">Technologies: HTML, CSS, JS, Firebase</p>
+</div>
+<div class="project-card">
+<h3>E-Commerce Android App</h3>
+<p>Android app with registration, login, product browsing, cart, and checkout.</p>
+<p class="tech">Technologies: Android Studio, XML, Java</p>
+</div>
+<div class="project-card">
+<h3>Home Lab IT Infrastructure</h3>
+<p>Simulated company IT environment with Active Directory, Group Policy, Azure user management, and networking.</p>
+<p class="tech">Technologies: Windows Server, Azure, AD, Cisco Packet Tracer</p>
+</div>
+<div class="project-card">
+<h3>Networking Fundamentals Lab</h3>
+<p>Router and switch configuration, IP setup, and troubleshooting to learn real-world networking.</p>
+<p class="tech">Technologies: Cisco Packet Tracer</p>
+</div>
+<div class="project-card">
+<h3>Data Analysis: Heat Attack</h3>
+<p>Analyzed heat attack patterns using RapidMiner and statistical modeling.</p>
+<p class="tech">Technologies: RapidMiner, Excel</p>
+</div>
+<div class="project-card">
+<h3>AI & Human Life Research</h3>
+<p>Studied the impact of AI on human lifestyle and productivity, generating research insights.</p>
+<p class="tech">Technologies: Python, AI Research Tools</p>
+</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+<h2>Experience</h2>
+<div class="timeline">
+<div class="timeline-item">
+<h4>Group Leader</h4>
+<p>Kings Own Institute – Led group projects and coordinated tasks.</p>
+</div>
+<div class="timeline-item">
+<h4>Shade Machine Project</h4>
+<p>Web Designer using Figma & Wix, implemented client requirements and UX focus.</p>
+</div>
+<div class="timeline-item">
+<h4>E-Commerce App</h4>
+<p>Developer in group project; implemented registration, cart, and checkout features.</p>
+</div>
+<div class="timeline-item">
+<h4>VibeVision Production</h4>
+<p>Front-end Developer with Firebase integration in group project.</p>
+</div>
+<div class="timeline-item">
+<h4>Internship – Extra Tech Pty.Ltd</h4>
+<p>CCST training, Azure, MS 365, and IT support practical exposure.</p>
+</div>
+<div class="timeline-item">
+<h4>Home Lab & Networking</h4>
+<p>System administration & network simulation using Windows Server & Cisco Packet Tracer.</p>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+<h2>Contact Me</h2>
+<form class="contact-form" action="https://formspree.io/f/mjkwqeaj" method="POST">
+<input type="text" name="Name" placeholder="Your Name" required>
+<input type="email" name="Email" placeholder="Your Email" required>
+<textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+<button type="reset">Reset</button>
+<button type="submit">Send Inquiry</button>
+</form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Bibek Khadka. All rights reserved.</p>
+</footer>
+
+<script>
+// Mobile Menu Toggle
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+toggle.addEventListener("click", () => { nav.classList.toggle("active"); });
+
+// Circular Skill Animation
+const skillCircles = document.querySelectorAll('.skill-circle');
+window.addEventListener('scroll', () => {
+skillCircles.forEach(circle => {
+  const rect = circle.getBoundingClientRect();
+  if(rect.top < window.innerHeight){
+    let percent = parseInt(circle.getAttribute('data-skill'));
+    let current = 0;
+    const span = circle.querySelector('span');
+    const interval = setInterval(() => {
+      if(current >= percent) clearInterval(interval);
+      else { current++; span.textContent = current + '%'; circle.style.background = `conic-gradient(#0ea5e9 ${current*3.6}deg, #334155 0deg)`; }
+    }, 15);
+  }
+});
+});
+
+// Typewriter Effect
+const text = ["Full-Stack Developer","Cybersecurity Enthusiast","IT Infrastructure Expert","Cloud & Azure Specialist"];
+let count = 0; let index = 0; let currentText = ''; let letter = '';
+(function type(){
+  if(count === text.length) count = 0;
+  currentText = text[count];
+  letter = currentText.slice(0, ++index);
+  document.querySelector('.typed-text').textContent = letter;
+  if(letter.length === currentText.length){ index=0; count++; setTimeout(type,1500); }
+  else setTimeout(type,150);
+})();
+</script>
+
+</body>
+</html>
